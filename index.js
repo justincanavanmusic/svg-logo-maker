@@ -41,11 +41,18 @@ function writeToSVG(fileName, dataObject) {
     if (dataObject.shape==="square") {
         console.log("square");
     }
-    else if (dataObject.shape==="circle") {
-        console.log("circle");
+    else if (dataObject.shape==="circle") { 
+       let jcCircle= `<circle cx="114px" cy="110px" r="80"`
+        return jcCircle;
+        
+    
     } else {
-        console.log("triangle");
+       return `<polygon points="120 20, 20 220, 220 220" />
+
+ <text x="121px" y="170px" font-size="60" text-anchor="middle" fill="blue">JRC</text>`
+
     }
+    
    
     // const shape=new Triangle (dataObject.shape)
         
