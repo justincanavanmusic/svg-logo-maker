@@ -1,11 +1,14 @@
 const inquirer = require('inquirer');
 const fs=require('fs');
+const writeSVGText = require('./lib/write-svg-text.js');
+const {Triangle, Circle, Square} = require('./lib/shapes.js');
+
 
 const questions = [    
     {
     type: 'input',
     message: 'Please enter your logo text:',
-    name: 'logo-text',
+    name: 'text',
     validate: function (userAnswer) {
         if (userAnswer.length>3) {
             return 'Your logo text must be between 1-3 characters.'
@@ -18,21 +21,46 @@ const questions = [
     },
     {
       type: 'input',
-      message: 'What color do you want your logo text to be?',
-      name: 'logo-text-color'
+      message: 'What color do you want your text to be?',
+      name: 'textcolor'
     },
-    // {
-    //   type: 'input',
-    //   message: 'What is your preferred method of communication?',
-    //   name: 'communication',
-    // },
+    {
+     type: 'list',
+     message: 'Please choose a shape.',
+     choices: ['triangle', "circle", "square"],
+     name: 'shape'
+      },
+    {
+     type: 'input',
+     message: 'What color do you want your shape to be?',
+     name: 'shapecolor'
+    },
 ];
+
+function writeToSVG(fileName, dataObject) {
+    if (dataObject.shape==="square") {
+        console.log("square");
+    }
+    else if (dataObject.shape==="circle") {
+        console.log("circle");
+    } else {
+        console.log("triangle");
+    }
+   
+    // const shape=new Triangle (dataObject.shape)
+        
+    
+    fs.writeFile(fileName, writeSVGText(dataObject),(errPlaceholder) => errPlaceholder ? console.error(errPlaceholder) : console.log('Generated logo.svg')
+    )
+   
+  }
+
 
 function runQuestions() {
   inquirer.prompt(questions)
 
     .then(answersObject=> {
-        writeToFile('logo.svg', answersObject); 
+        writeToSVG('logo.svg', answersObject); 
         console.log(answersObject);
         });
     //   .catch(error => {
