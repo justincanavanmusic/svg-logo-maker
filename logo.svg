@@ -2,8 +2,8 @@
     width="300" height="200"
     xmlns="http://www.w3.org/2000/svg">
 
-<rect x="40px" y="40px" width="150px" height="150px" fill="orange" />
+<circle cx="114px" cy="110px" r="80px" fill="blue" />
 
-<text x="116" y="135" font-size="60" text-anchor="middle" fill="blue">JRC</text>
+<text x="116" y="130" font-size="60" text-anchor="middle" fill="yellow">jrc</text>
 
 </svg>
