@@ -38,17 +38,6 @@ const questions = [
 ];
 
 function writeToSVG(fileName, dataObject) {
-    if (dataObject.shape==="square") {
-        console.log("square");
-    }
-    else if (dataObject.shape==="circle") {
-        console.log("circle");
-    } else {
-        console.log("triangle");
-    }
-   
-    // const shape=new Triangle (dataObject.shape)
-        
     
     fs.writeFile(fileName, writeSVGText(dataObject),(errPlaceholder) => errPlaceholder ? console.error(errPlaceholder) : console.log('Generated logo.svg')
     )

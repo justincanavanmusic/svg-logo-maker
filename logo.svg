@@ -1,19 +1,9 @@
 <svg version="1.1"
-    width="300px" height="200px"
+    width="300" height="200"
     xmlns="http://www.w3.org/2000/svg">
 
- <!-- <circle cx="114px" cy="110px" r="80" fill="pink" /> -->
+<rect x="40px" y="40px" width="150px" height="150px" fill="red" />
 
- <!-- <rect x="40px" y="40px" width="150px" height="150px"/> -->
-
-
-<!-- <polygon points="15,10 10,150 200,150" fill="red"/> -->
-
-<polygon points="135,30 10,200 280,245" fill="red"/>
-
- <text x="133px" y="160px" font-size="60" text-anchor="middle" fill="blue">JRC</text>
+<text x="116" y="135" font-size="60" text-anchor="middle" fill="blue">JRC</text>
 
 </svg>
-
- 
-
