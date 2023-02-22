@@ -45,29 +45,28 @@ function writeToSVG(fileName, dataObject) {
    
   }
 
-
 function runQuestions() {
   inquirer.prompt(questions)
 
     .then(answersObject=> {
       let shape;
       if (answersObject.shape==="triangle") {
-        shape = new Triangle(answersObject.shapecolor)
+        shape = new Triangle(answersObject.shapecolor, answersObject.shape)
       } else if (answersObject.shape==="square") {
-        shape = new Square(answersObject.shapecolor)
+        shape = new Square(answersObject.shapecolor, answersObject.shape)
       } else {
-        shape = new Circle(answersObject.shapecolor)
+        shape = new Circle(answersObject.shapecolor, answersObject.shape)
       }
-      const svg = new SVG(answersObject.text, answersObject.textcolor);
+      const svg = new SVG(answersObject.text, answersObject.textcolor, answersObject.shape);
       
       svg.setShape(shape)
 
         writeToSVG('logo.svg', svg); 
         console.log(answersObject);
-        });
-    //   .catch(error => {
-    //     console.log("An error occured!");
-    // })
+        })
+      .catch(error => {
+        console.log("An error occured!");
+    })
     };
 
 
