@@ -49,7 +49,7 @@ const questions = [
 //Lastly an if statement saying if there an error to console.error and if not to console.log
 function writeToSVG(fileName, dataObject) {
     
-    fs.writeFile(fileName, writeSVGText(dataObject),(errPlaceholder) => errPlaceholder ? console.error(errPlaceholder) : console.log('Generated logo.svg')
+    fs.writeFile(fileName, dataObject.render(),(errPlaceholder) => errPlaceholder ? console.error(errPlaceholder) : console.log('Generated logo.svg')
     )
    
   }
@@ -64,7 +64,19 @@ function runQuestions() {
 
 
     .then(answersObject=> {
-        writeToSVG('logo.svg', answersObject); 
+      let shape;
+      if (answersObject.shape==="triangle") {
+        shape = new Triangle(answersObject.shapecolor)
+      } else if (answersObject==="square") {
+        shape = new Square(answersObject.shapecolor)
+      } else {
+        shape = new Circle(answersObject.shapecolor)
+      }
+      const svg = new SVG(answersObject.text, answersObject.textcolor);
+      
+      svg.setShape(shape)
+
+        writeToSVG('logo.svg', svg); 
         console.log(answersObject);
         })
       .catch(error => {
