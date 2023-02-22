@@ -53,7 +53,7 @@ function runQuestions() {
       let shape;
       if (answersObject.shape==="triangle") {
         shape = new Triangle(answersObject.shapecolor)
-      } else if (answersObject==="square") {
+      } else if (answersObject.shape==="square") {
         shape = new Square(answersObject.shapecolor)
       } else {
         shape = new Circle(answersObject.shapecolor)
