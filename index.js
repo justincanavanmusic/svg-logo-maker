@@ -53,29 +53,19 @@ function writeToSVG(fileName, dataObject) {
     )
    
   }
-//the function below runs the inquirer.prompt and runs the questions. 
+//the function below runs the inquirer.prompt which runs the questions. 
 
-//once the prompts are all answered, .then function is run which stores all of the data from the user in answersObject
+//once the prompts are all answered,the
+//.then function is run which stores all of the data from the user in answersObject
 
-//writeToSVG function is called which populates the logo.svg file 
+//writeToSVG function is called which populates the logo.svg file which includes information from the answersObject
 
 function runQuestions() {
   inquirer.prompt(questions)
 
 
     .then(answersObject=> {
-      // let shape;
-      // if (answersObject.shape==="triangle") {
-      //   shape = new Triangle(answersObject.shapecolor)
-      // } else if (answersObject==="square") {
-      //   shape = new Square(answersObject.shapecolor)
-      // } else {
-      //   shape = new Circle(answersObject.shapecolor)
-      // }
-      // const svg = new SVG(answersObject.text, answersObject.textcolor);
-      
-      // svg.setShape(shape)
-
+   
         writeToSVG('logo.svg', answersObject); 
         console.log(answersObject);
         })
