@@ -26,4 +26,5 @@ justincanavanmusic
 
 ### Resources
 -bootcamp materials/instruction <br>
--guidance from tutor sessions, AskBCS, office hours/extra help from instructors
+-guidance from tutor sessions, AskBCS, office hours/extra help from instructors <br>
+-skeleton of test folders provided by instruction staff
