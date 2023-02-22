@@ -2,8 +2,8 @@
     width="300" height="200"
     xmlns="http://www.w3.org/2000/svg">
 
-<rect x="40px" y="40px" width="150px" height="150px" fill="red" />
+<polygon points="120,10 10,200 250,245" fill="blue" />
 
-<text x="116" y="135" font-size="60" text-anchor="middle" fill="blue">JRC</text>
+<text x="120" y="150" font-size="60" text-anchor="middle" fill="yellow">JRC</text>
 
 </svg>

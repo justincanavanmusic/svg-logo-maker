@@ -1,9 +1,12 @@
 const inquirer = require('inquirer');
 const fs=require('fs');
 const writeSVGText = require('./lib/write-svg-text.js');
-const {Triangle, Circle, Square} = require('./lib/shapes.js');
+// const {Triangle, Circle, Square} = require('./lib/shapes.js');
+//connected inquirer for prompt questions, 
+//fs in order to writeFile
+//connected to write-svg-text to access writeSVGText function
 
-
+//array of questions for prompts
 const questions = [    
     {
     type: 'input',
@@ -37,25 +40,37 @@ const questions = [
     },
 ];
 
+//function which has two parameters
+
+//fs.writeFile is a built in function which asynchronously writes data to a file. if the file already exists it will overwrite the file. 
+
+//the two arguments are the filepath and the data. the writeSVGText function writes the data seen on the write-svg-text.js page and uses the user data from the dataObject to help populate the file with the users responses.
+
+//Lastly an if statement saying if there an error to console.error and if not to console.log
 function writeToSVG(fileName, dataObject) {
     
     fs.writeFile(fileName, writeSVGText(dataObject),(errPlaceholder) => errPlaceholder ? console.error(errPlaceholder) : console.log('Generated logo.svg')
     )
    
   }
+//the function below runs the inquirer.prompt and runs the questions. 
 
+//once the prompts are all answered, .then function is run which stores all of the data from the user in answersObject
+
+//writeToSVG function is called which populates the logo.svg file 
 
 function runQuestions() {
   inquirer.prompt(questions)
 
+
     .then(answersObject=> {
         writeToSVG('logo.svg', answersObject); 
         console.log(answersObject);
-        });
-    //   .catch(error => {
-    //     console.log("An error occured!");
-    // })
+        })
+      .catch(error => {
+        console.log("An error occured!");
+    })
     };
 
-
+//calling runQuestions function
 runQuestions();
