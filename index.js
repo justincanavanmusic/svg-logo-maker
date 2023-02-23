@@ -44,6 +44,7 @@ function writeToSVG(fileName, dataObject) {
     )
    
   }
+  
 
 function runQuestions() {
   inquirer.prompt(questions)
@@ -51,11 +52,12 @@ function runQuestions() {
     .then(answersObject=> {
       let shape;
       if (answersObject.shape==="triangle") {
-        shape = new Triangle(answersObject.shapecolor, answersObject.shape)
+        shape = new Triangle(answersObject.shapecolor, answersObject.shape,
+          writeSVGText(shape))
       } else if (answersObject.shape==="square") {
-        shape = new Square(answersObject.shapecolor, answersObject.shape)
+        shape = new Square(answersObject.shapecolor, answersObject.shape, writeSVGText(shape))
       } else {
-        shape = new Circle(answersObject.shapecolor, answersObject.shape)
+        shape = new Circle(answersObject.shapecolor, answersObject.shape, writeSVGText(shape))
       }
       const svg = new SVG(answersObject.text, answersObject.textcolor, answersObject.shape);
       
